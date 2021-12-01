@@ -31,10 +31,13 @@ def main():
         #  game.ai_move(new_board)
 
         for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                pos = pygame.mouse.get_pos()
-                col = get_col_from_mouse(pos)
-                game.add_piece(col)
+          if event.type == pygame.QUIT:
+            run = False
+
+          if event.type == pygame.MOUSEBUTTONDOWN:
+            pos = pygame.mouse.get_pos()
+            col = get_col_from_mouse(pos)
+            game.add_piece(col)
 
         game.update()
 
