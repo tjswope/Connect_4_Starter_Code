@@ -22,20 +22,7 @@ class Board:
         self.board[row].append(0)
 
   ##################################################################
-    
-    # Functions for evaluating the board. These functions will be used by the minimax algorithm.
 
-    # this function will get the score!
-  def evaluate(self):   
-    return self.total_score(WHITE) - self.total_score(RED)
-
-  def total_score(self, color):
-    return random.randint(1,10)
-
-
-
-##################################################################
-    
   # Functions for drawing the board.
 
   # this function is called by draw(). It will draw the grey circles on the board.
@@ -122,10 +109,7 @@ class Board:
 
     # this function checks to see if color has won the game.
     # return true if there is, false if there isn't.
-  def winner(self, color): 
-
-    #return self.diagonal_winner(color)
-
+  def winner(self, color):
     return self.diagonal_winner(color) or self.vertical_winner(color) or self.horizontal_winner(color) 
 
     # checks to see if color has won the game by getting four in a row vertically.

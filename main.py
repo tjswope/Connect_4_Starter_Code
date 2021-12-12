@@ -1,47 +1,38 @@
 import pygame
-
 from connectFour.constants import WIDTH, HEIGHT, RED, WHITE, SQUARE_SIZE
-
 from connectFour.game import Game
 from connectFour.algorithm import minimax
-
+from connectFour.evaluate import Evaluate
+from connectFour.evaluate2 import Evaluate2
 FPS = 60
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Connect 4')
 
-
-def get_col_from_mouse(pos):
-    x, y = pos
-    col = x // SQUARE_SIZE
-    return col
-
-
 def main():
-    run = True
-    clock = pygame.time.Clock()
     game = Game(WIN)
+    player1 = Evaluate()
+    player2 = Evaluate2()
 
-    while run:
-        
-        clock.tick(FPS)
-        # comment out this if statement if you want to test your scoring algorithm without an AI.
-        #if game.turn == WHITE:
-        #  value, new_board = minimax(game.get_board(), 2, True, WHITE)
-        #  game.ai_move(new_board)
+    while not game.winner(WHITE) and not game.winner(RED):
 
-        for event in pygame.event.get():
-          if event.type == pygame.QUIT:
-            run = False
-
-          if event.type == pygame.MOUSEBUTTONDOWN:
-            pos = pygame.mouse.get_pos()
-            col = get_col_from_mouse(pos)
-            game.add_piece(col)
+        if game.turn == WHITE:
+          value, new_board = minimax(game.get_board(), 4, True, WHITE, player1)
+          game.ai_move(new_board)
+        else:
+          value, new_board = minimax(game.get_board(), 4, False, RED, player2)
+          game.ai_move(new_board)
 
         game.update()
 
-    pygame.quit()
+        for event in pygame.event.get():
+            pass
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
 
 
 main()

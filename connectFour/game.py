@@ -4,7 +4,6 @@ from .board import Board
 
 class Game:
 
-  
     def __init__(self, win):
         self._init()
         self.win = win
@@ -46,5 +45,7 @@ class Game:
     def ai_move(self,board):
       self.board = board
       if self.board.winner(self.turn):
-          print("white is the winner")
+          winner = "red" if self.turn == RED else "white"
+          print(winner + " is the winner")
       self.change_turn()
+
