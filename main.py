@@ -8,13 +8,18 @@ from connectFour.evaluate import Evaluate
 
 from connectFour.andrew import Andrew
 from connectFour.annie import Annie
+from connectFour.hillis import hillis
+from connectFour.ian import Ian
+from connectFour.jake import Jake
+from connectFour.jack import Jack
+from connectFour.krzysztof import Krzysztof
+from connectFour.macy import Macy
+from connectFour.nathang import Nathan
+from connectFour.phillip import Phillip
 from connectFour.ryan import Ryan
 from connectFour.simon import Simon
-from connectFour.jake import Jake
-from connectFour.nathang import Nathan
 from connectFour.talia import Talia
 
-from connectFour.evaluate2 import Evaluate2
 
 FPS = 60
 DEPTH = 4

@@ -9,7 +9,7 @@ import random
 # This distinction is signifigant due to the exponential scoring scale.
 from .constants import RED, WHITE, ROWS, COLS
 
-class Evaluate:
+class Jack:
 
   # Functions for evaluating the board. These functions will be used by the minimax algorithm.
   # this function will get the score!
