@@ -1,6 +1,6 @@
 import random
 
-from .constants import RED, WHITE
+from .constants import RED, WHITE, ROWS, COLS
 
 class Evaluate:
 
