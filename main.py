@@ -30,16 +30,14 @@ pygame.display.set_caption('Connect 4')
 
 def main():
     game = Game(WIN)
-    player1 = Simon()
-    player2 = Ryan()
+    player1 = Phillip()      # white
+    player2 = Evaluate()         # red
     first = r.randint(0,1)
     player1_wins = 0
     player2_wins = 0
 
     while player1_wins < BEST_OF and player2_wins < BEST_OF:
         game.reset(first)
-        if first % 2 == 0:
-            game.turn = WHITE
         first+=1
 
         while not game.winner(WHITE) and not game.winner(RED) and not game.board.is_full():
@@ -51,18 +49,27 @@ def main():
                 value, new_board = minimax(game.get_board(), DEPTH, False, RED, player2)
                 game.ai_move(new_board)
 
-            if game.winner(WHITE):
-                player1_wins+=1
-            elif game.winner(RED):
-                player2_wins+=1
+            game.change_turn()
             game.update()
 
             for event in pygame.event.get():
                 pass
+
+        if game.winner(WHITE):
+            print("white is the winner")
+            game.board.print()
+            player1_wins+=1
+
+        elif game.winner(RED):
+            print("red is the winner")
+            game.board.print()
+            player2_wins+=1
+
         time.sleep(2)
 
     print("White won " + str(player1_wins))
     print("Red won " + str(player2_wins))
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

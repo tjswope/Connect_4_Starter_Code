@@ -59,7 +59,6 @@ class Board:
       print()
     print()
 
-    print(self.evaluate())
 
   ##################################################################
   # Functions for adding Pieces to the board and finding empty spots.

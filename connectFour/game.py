@@ -21,12 +21,12 @@ class Game:
       else:
             self.turn = RED
 
-      winner = "red" if self.turn == RED else "white"
-      print(winner + " goes first")
+      goes_first = "red" if self.turn == RED else "white"
+      print(goes_first + " goes first")
 
 
     def winner(self, col):
-        return self.board.winner(self.turn)
+        return self.board.winner(col)
 
     def reset(self, first):
         self._init(first)
@@ -53,8 +53,8 @@ class Game:
     # will pass a new board object to the game 
     def ai_move(self,board):
       self.board = board
-      if self.board.winner(self.turn):
-          winner = "red" if self.turn == RED else "white"
-          print(winner + " is the winner")
-      self.change_turn()
+#      if self.board.winner(self.turn):
+#          winner = "red" if self.turn == RED else "white"
+#          print(winner + " is the winner")
+      #self.change_turn()
 
