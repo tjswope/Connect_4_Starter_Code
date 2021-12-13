@@ -103,6 +103,15 @@ class Board:
 
     return moves
 
+  def is_full(self):
+    for row in range(ROWS):
+      for col in range(COLS):
+        if self.board[row][col] == 0:
+          return False
+
+    print("tie")
+    return True
+
   ##################################################################
     
     # Functions for checking to see if there is a winner.

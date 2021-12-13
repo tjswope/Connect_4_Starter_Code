@@ -5,22 +5,31 @@ from .board import Board
 class Game:
 
     def __init__(self, win):
-        self._init()
+        self.board = Board()
+        self.turn = WHITE
         self.win = win
     
     def update(self):
         self.board.draw(self.win)
         pygame.display.update()
 
-    def _init(self):
+    def _init(self, first):
       self.board = Board()
-      self.turn = RED
+
+      if first % 2 == 0:
+            self.turn = WHITE
+      else:
+            self.turn = RED
+
+      winner = "red" if self.turn == RED else "white"
+      print(winner + " goes first")
+
 
     def winner(self, col):
         return self.board.winner(self.turn)
 
-    def reset(self):
-        self._init()
+    def reset(self, first):
+        self._init(first)
 
     def add_piece(self, column):  
       if self.board.add_piece(self.turn, column):
