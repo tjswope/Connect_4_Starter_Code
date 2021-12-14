@@ -30,8 +30,8 @@ pygame.display.set_caption('Connect 4')
 
 def main():
     game = Game(WIN)
-    player1 = Phillip()      # white
-    player2 = Evaluate()         # red
+    player1 = Evaluate()      # white
+    player2 = Krzysztof()         # red
     first = r.randint(0,1)
     player1_wins = 0
     player2_wins = 0
