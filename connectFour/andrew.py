@@ -1,5 +1,5 @@
 import random
-from .constants import RED, WHITE, ROWS, COLS
+from .constants import RED, WHITE
 
 class Andrew:
 
@@ -18,7 +18,7 @@ class Andrew:
     counter = 0
     for column in range(COLS):
       for row in range(ROWS):
-        if self.board[row][column] != 0 and self.board[row][column].color == color:
+        if board.board[row][column] != 0 and board.board[row][column].color == color:
           counter += 1
         else:
           counter = 0
@@ -35,7 +35,7 @@ class Andrew:
     #horizontal
     for row in range(ROWS):
       for column in range(COLS):
-        if self.board[row][column] != 0 and self.board[row][column].color == color:
+        if board.board[row][column] != 0 and board.board[row][column].color == color:
           counter += 1
         else:
           counter = 0
@@ -53,7 +53,7 @@ class Andrew:
     #idagonal down
     for row in range(3):
       for column in range(4):
-        while counter < 4 and self.board[row + counter][column + counter] != 0 and self.board[row + counter][column + counter].color == color:
+        while counter < 4 and board.board[row + counter][column + counter] != 0 and board.board[row + counter][column + counter].color == color:
           counter += 1
 
         if counter >= 2:
@@ -69,7 +69,7 @@ class Andrew:
     #diagonal up
     for row in range(3):
       for column in range(4):
-        while counter < 4 and self.board[row + counter][6 - column - counter] != 0 and self.board[row + counter][6 - column - counter].color == color:
+        while counter < 4 and board.board[row + counter][6 - column - counter] != 0 and board.board[row + counter][6 - column - counter].color == color:
           counter += 1
 
         if counter >= 2:

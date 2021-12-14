@@ -19,6 +19,7 @@ from connectFour.phillip import Phillip
 from connectFour.ryan import Ryan
 from connectFour.simon import Simon
 from connectFour.talia import Talia
+from connectFour.Alex import Alex
 
 
 FPS = 60
